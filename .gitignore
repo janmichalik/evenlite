@@ -92,6 +92,22 @@ wp-content/*
 !wp-content/themes/
 !wp-content/languages/
 
+# allow custom webpack config
+!wp-content/webpack/
+!wp-content/webpack/**
+
+# allow Angular apps inside plugin
+!wp-content/plugins/evenlite/settings-app/
+!wp-content/plugins/evenlite/settings-app/**
+!wp-content/plugins/evenlite/booking-app/
+!wp-content/plugins/evenlite/booking-app/**
+!settings-app/
+!settings-app/**
+!booking-app/
+!booking-app/**
+
+
+
 app/*
 !app/mu-plugins/
 !app/plugins/

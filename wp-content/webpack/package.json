@@ -1,0 +1,27 @@
+{
+  "name": "jmic-blank",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "css-loader": "^7.1.2",
+    "mini-css-extract-plugin": "^2.9.2",
+    "postcss": "^8.5.6",
+    "sass": "^1.89.2",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^3.4.17",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.3",
+    "webpack": "^5.100.2",
+    "webpack-cli": "^6.0.1"
+  }
+}

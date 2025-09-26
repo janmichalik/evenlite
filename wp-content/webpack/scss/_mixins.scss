@@ -1,0 +1,23 @@
+@mixin md {
+  @media screen and (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin xs {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin yellow {
+  body.yellow & {
+    @content;
+  }
+}

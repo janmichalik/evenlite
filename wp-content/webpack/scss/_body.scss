@@ -1,0 +1,29 @@
+@use './mixins' as *;
+@use './variables' as *;
+
+body {
+	margin: 0;
+	font-family: 'Poppins', sans-serif;
+}
+
+.container {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1300px;
+	padding: 0 20px;
+
+	@include xs {
+		padding: 0 10px;
+	}
+}
+
+#wp-admin-bar-customize {
+	display: none;
+}
+
+.section-gutenberg-post {
+	border: 1px solid var(--green);
+	padding: 10px;
+	margin: 10px;
+	border-radius: 8px;
+}
