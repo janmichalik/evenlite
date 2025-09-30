@@ -1,4 +1,5 @@
 <?php 
+
 require_once('includes/wp_settings.php'); // wordpress core settings 
 require_once('includes/carbon_fields.php'); // custom fields
 require_once('includes/admin_ajax.php'); // ajax url

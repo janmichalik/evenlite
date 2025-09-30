@@ -11,6 +11,19 @@ if (!function_exists('_o')) {
   }
 }
 
+add_filter( 'gettext', function( $translated_text, $text, $domain ) {
+    file_put_contents(
+        __DIR__ . '/πLOG.json',
+        json_encode([
+            'text' => $text,
+            'domain' => $domain
+        ], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) . ",\n",
+        FILE_APPEND
+    );
+    return $translated_text;
+}, 10, 3 );
+
+
 function cf_get_languages()
 {
   return [
