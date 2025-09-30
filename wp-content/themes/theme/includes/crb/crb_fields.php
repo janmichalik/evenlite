@@ -11,17 +11,9 @@ if (!function_exists('_o')) {
   }
 }
 
-add_filter( 'gettext', function( $translated_text, $text, $domain ) {
-    file_put_contents(
-        __DIR__ . '/πLOG.json',
-        json_encode([
-            'text' => $text,
-            'domain' => $domain
-        ], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) . ",\n",
-        FILE_APPEND
-    );
-    return $translated_text;
-}, 10, 3 );
+add_filter('gettext', function ($translated_text, $text, $domain) {
+  return $translated_text;
+}, 10, 3);
 
 
 function cf_get_languages()
@@ -43,6 +35,24 @@ function cf_translation_fields()
       ->set_width(85),
   ];
 }
+
+function cf_get_translated_label($items)
+{
+  $current_lang = substr(get_locale(), 0, 2);
+  foreach ($items as $item) {
+    if (isset($item['lang']) && $item['lang'] === $current_lang) {
+      $label = $item['label'];
+      return is_array($label) && isset($label['value']) ? $label['value'] : (string) $label;
+    }
+  }
+  if (!empty($items[0]['label'])) {
+    $label = $items[0]['label'];
+    return is_array($label) && isset($label['value']) ? $label['value'] : (string) $label;
+  }
+  return '';
+}
+
+
 
 function get_cf_translation($option_key, $default_label = '')
 {
@@ -99,8 +109,11 @@ add_action('carbon_fields_register_fields', function () {
     ->add_fields([
       Field::make('complex', 'crb_sections', 'Sekcje')
         ->add_fields('text', 'Sekcja z tekstem', [
-          Field::make('rich_text', 'text', 'Treść'),
+          Field::make('complex', 'text', 'Treść')
+            ->add_fields(cf_translation_fields())
+            ->set_max(count(cf_get_languages())),
         ])
+
         ->add_fields('file_list', 'Sekcja z listą plików', [
           Field::make('complex', 'files', 'Pliki')
             ->add_fields([
@@ -131,7 +144,7 @@ add_filter('locale', function ($locale) {
 
 // auto disable used language options in admin select fields
 add_action('admin_footer', function () {
-  ?>
+?>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const selectorPattern = '[name^="carbon_fields_compact_input[_company_nip_label]"][name$="[_lang]"]';
@@ -206,5 +219,5 @@ add_action('admin_footer', function () {
       }, 500);
     });
   </script>
-  <?php
+<?php
 });

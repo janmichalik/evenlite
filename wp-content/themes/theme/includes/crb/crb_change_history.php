@@ -229,17 +229,16 @@ add_action('add_meta_boxes', function () {
 });
 
 
-function cf_extract_text_field($section)
-{
-  if (!is_array($section)) return '<em>Brak danych</em>';
-
-  if (($section['_type'] ?? '') === 'text') {
-    $text = $section['text'] ?? '';
-    return $text ? wp_kses_post($text) : '<em>Pusty tekst</em>';
+function cf_extract_text_field($field) {
+  if (is_array($field)) {
+    if (isset($field['value']) && is_string($field['value'])) {
+      return wp_kses_post($field['value']);
+    }
+    return ''; 
   }
-
-  return '<em>Nie jest sekcją tekstową</em>';
+  return wp_kses_post((string) $field);
 }
+
 
 add_action('init', 'cf_ensure_change_log_table');
 
