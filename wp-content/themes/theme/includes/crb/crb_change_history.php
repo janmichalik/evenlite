@@ -209,13 +209,8 @@ add_action('add_meta_boxes', function () {
     foreach ($rows as $row) {
       $old = maybe_unserialize($row->old_value);
       $new = maybe_unserialize($row->new_value);
-
       echo '<tr>';
-
-      // Data zmiany
       echo '<td>' . esc_html($row->changed_at) . '</td>';
-
-      // Etykieta pola: np. Tekst #2 zamiast crb_sections[1]
       $label = $row->field_key;
       if (preg_match('/crb_sections\[(\d+)\]/', $label, $matches)) {
         $index = (int)$matches[1];
@@ -223,17 +218,10 @@ add_action('add_meta_boxes', function () {
         $label = cf_section_type_label($type) . ' #' . ($index + 1);
       }
       echo '<td>' . esc_html($label) . '</td>';
-
-      // Użytkownik
       $user = get_userdata($row->user_id);
       echo '<td>' . esc_html($user->display_name ?? '—') . '</td>';
-
-      // Stara wartość
       echo '<td>' . cf_extract_text_field($old) . '</td>';
-
-      // Nowa wartość
       echo '<td>' . cf_extract_text_field($new) . '</td>';
-
       echo '</tr>';
     }
     echo '</tbody></table>';

@@ -68,7 +68,8 @@ add_action('carbon_fields_register_fields', function () {
     ->add_fields([
       Field::make('text', 'company_nip', 'Nip firmy'),
       Field::make('complex', 'company_nip_label', 'Etykieta NIP')
-        ->add_fields(cf_translation_fields()),
+        ->add_fields(cf_translation_fields())
+        ->set_max(count(cf_get_languages())),
       Field::make('complex', 'company_address_label', 'Etykieta Adres')
         ->add_fields(cf_translation_fields()),
       Field::make('complex', 'bottom_cols', 'Kolumny dolne')
@@ -113,4 +114,84 @@ add_filter('locale', function ($locale) {
     $locale = $_GET['lang'] . '_' . strtoupper($_GET['lang']);
   }
   return $locale;
+});
+
+// auto disable used language options in admin select fields
+add_action('admin_footer', function () {
+  ?>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const selectorPattern = '[name^="carbon_fields_compact_input[_company_nip_label]"][name$="[_lang]"]';
+
+      function updateLangSelects() {
+        const selects = document.querySelectorAll(selectorPattern);
+        if (selects.length === 0) return;
+        const allLangs = Array.from(selects[0].options).map(opt => opt.value).filter(v => v);
+        const langCount = {};
+        selects.forEach(select => {
+          if (select.value) {
+            langCount[select.value] = (langCount[select.value] || 0) + 1;
+          }
+        });
+        selects.forEach((select, idx) => {
+          Array.from(select.options).forEach((option) => {
+            if (!option.value) return;
+            const usedCount = langCount[option.value] || 0;
+            const isCurrent = select.value === option.value;
+            option.disabled = usedCount > (isCurrent ? 1 : 0);
+          });
+        });
+        const needsReset = [];
+        selects.forEach(select => {
+          const current = select.options[select.selectedIndex];
+          if (!select.value || (current && current.disabled)) {
+            needsReset.push(select);
+          }
+        });
+        if (needsReset.length === 0) return;
+        const usedLangs = new Set();
+        selects.forEach(select => {
+          if (!needsReset.includes(select) && select.value) {
+            usedLangs.add(select.value);
+          }
+        });
+        let available = allLangs.filter(l => !usedLangs.has(l));
+        available.sort((a, b) => allLangs.indexOf(a) - allLangs.indexOf(b));
+        let changesMade = false;
+        needsReset.forEach(select => {
+          if (available.length > 0) {
+            const next = available.shift();
+            if (select.value !== next) {
+              select.value = next;
+              changesMade = true;
+            }
+          } else {
+            if (select.value !== '') {
+              select.value = '';
+              changesMade = true;
+            }
+          }
+        });
+        if (changesMade) {
+          setTimeout(updateLangSelects, 100);
+        }
+      }
+      document.body.addEventListener('change', (event) => {
+        if (event.target.matches(selectorPattern)) {
+          setTimeout(updateLangSelects, 100);
+        }
+      });
+      const observer = new MutationObserver(() => {
+        setTimeout(updateLangSelects, 100);
+      });
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+      setTimeout(() => {
+        updateLangSelects();
+      }, 500);
+    });
+  </script>
+  <?php
 });
