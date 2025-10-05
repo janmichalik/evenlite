@@ -35,9 +35,9 @@ function evenlite_events_admin_page()
 
 add_action('admin_enqueue_scripts', function ($hook) {
     $plugin_dir = plugin_dir_path(file: __FILE__) . 'settings-app';
-    $main_js = evenlite_get_hashed_file($plugin_dir, 'main', 'js');
+    $main_js = evenlite_get_hashed_file($plugin_dir, 'main', 'js') ?? '';
+    $plugin_url = plugins_url('settings-app', __FILE__);
     if ($hook === 'toplevel_page_evenlite-events') {
-        $plugin_url = plugins_url('settings-app', __FILE__);
         $main_js = evenlite_get_hashed_file($plugin_dir, 'main', 'js');
         $styles_css = evenlite_get_hashed_file($plugin_dir, 'styles', 'css');
         $runtime_js = evenlite_get_hashed_file($plugin_dir, 'runtime', 'js');
@@ -56,7 +56,7 @@ add_action('admin_enqueue_scripts', function ($hook) {
             wp_enqueue_script('settings-main', "$plugin_url/$main_js", [], null, true);
         }
     }
-    if ($main_js) {
+    if ($main_js && $plugin_url) {
         wp_enqueue_script('settings-main', "$plugin_url/$main_js", [], null, true);
 
         wp_localize_script('settings-main', 'EvenliteAPI', [
@@ -95,3 +95,65 @@ function evenlite_expose_nonce()
     ]);
 }
 add_action('wp_enqueue_scripts', 'evenlite_expose_nonce');
+
+
+function evenlite_create_tables()
+{
+    global $wpdb;
+    $charset_collate = $wpdb->get_charset_collate();
+
+    $tables = [];
+
+    // Bookings
+    $tables[] = "CREATE TABLE {$wpdb->prefix}evenlite_bookings (
+        id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+        event_id BIGINT UNSIGNED NOT NULL,
+        user_id BIGINT UNSIGNED NOT NULL,
+        status VARCHAR(20) DEFAULT 'pending',
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (id)
+    ) $charset_collate;";
+
+    // Events
+    $tables[] = "CREATE TABLE {$wpdb->prefix}evenlite_events (
+        id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+        title VARCHAR(255) NOT NULL,
+        description TEXT,
+        start DATETIME NOT NULL,
+        end DATETIME NOT NULL,
+        location_id BIGINT UNSIGNED,
+        PRIMARY KEY (id)
+    ) $charset_collate;";
+
+    // Invoices
+    $tables[] = "CREATE TABLE {$wpdb->prefix}evenlite_invoices (
+        id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+        booking_id BIGINT UNSIGNED NOT NULL,
+        amount DECIMAL(10,2) NOT NULL,
+        issued_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        paid BOOLEAN DEFAULT FALSE,
+        PRIMARY KEY (id)
+    ) $charset_collate;";
+
+    // Locations
+    $tables[] = "CREATE TABLE {$wpdb->prefix}evenlite_locations (
+        id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+        name VARCHAR(255) NOT NULL,
+        address TEXT,
+        PRIMARY KEY (id)
+    ) $charset_collate;";
+
+    // Rooms
+    $tables[] = "CREATE TABLE {$wpdb->prefix}evenlite_rooms (
+        id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+        location_id BIGINT UNSIGNED NOT NULL,
+        name VARCHAR(255) NOT NULL,
+        capacity INT DEFAULT 0,
+        PRIMARY KEY (id)
+    ) $charset_collate;";
+
+    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+    foreach ($tables as $sql) {
+        dbDelta($sql);
+    }
+}

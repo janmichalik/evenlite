@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 6.8.x - Development - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-07-14 07:40:49+0000\n"
+"PO-Revision-Date: 2025-10-03 22:06:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,7 +37,7 @@ msgctxt "default GMT offset or timezone string"
 msgid "0"
 msgstr "Europe/Warsaw"
 
-#: wp-admin/about.php:118
+#: wp-admin/about.php:138
 msgid "Speculative loading speeds up navigation by preloading links before users navigate to them, bcrypt hashing strengthens password security automatically, and database optimizations improve performance."
 msgstr "Wczytywanie spekulatywne przyspiesza nawigację poprzez wstępne ładowanie odnośników, zanim użytkownicy przejdą do nich, haszowanie bcrypt automatycznie wzmacnia bezpieczeństwo haseł, a optymalizacje bazy danych poprawiają wydajność."
 
@@ -220,68 +220,68 @@ msgstr "Kierownik mniejszych wydań"
 msgid "Release Coordination"
 msgstr "Koordynator wydania"
 
-#: wp-admin/about.php:219
+#: wp-admin/about.php:239
 msgid "WordPress 6.8 packs a wide range of performance fixes and enhancements to speed up everything from editing to browsing. Beyond speculative loading, WordPress 6.8 pays special attention to the block editor, block type registration, and query caching. Plus, imagine never waiting longer than 50 milliseconds—for any interaction. In WordPress 6.8, the Interactivity API takes a first step toward that goal."
 msgstr "WordPress 6.8 zawiera szeroką gamę poprawek wydajności, aby przyspieszyć wszystko, od edycji po przeglądanie. Poza wyliczeniami ładowania, WordPress 6.8 zwraca szczególną uwagę na edytor bloków, rejestrację typów bloków i buforowanie zapytań. Dodatkowo, wyobraź sobie, że nigdy nie czekasz dłużej niż 50 milisekund na jakąkolwiek interakcję. W WordPress 6.8, Interaktywne API robi pierwszy krok w kierunku osiągnięcia tego celu."
 
-#: wp-admin/about.php:206
+#: wp-admin/about.php:226
 msgid "Work continues on optimizing cache key generation in the <code>WP_Query</code> class. The goal is, as ever, to boost your site&#8217;s performance, in this case by taking some more of the load off your database. This is especially good if you get a lot of traffic."
 msgstr "Trwają są prace nad optymalizacją generowania kluczy pamięci podręcznej w klasie <code>WP_Query</code>. Celem jest, jak zawsze, zwiększenie wydajności witryny, w tym przypadku poprzez odciążenie bazy danych. Jest to szczególnie przydatne, jeśli witryna ma duży ruch."
 
-#: wp-admin/about.php:205
+#: wp-admin/about.php:225
 msgid "Take a load off the database"
 msgstr "Odciąż bazę danych"
 
-#: wp-admin/about.php:197
+#: wp-admin/about.php:217
 msgid "100+ accessibility fixes and enhancements touch a broad spectrum of the WordPress experience. This release includes fixes to every bundled theme, improvements to the navigation menu management, the customizer, and simplified labeling. The Block Editor has over 70 improvements to blocks, DataViews, and to its overall user experience."
 msgstr "Ponad 100 poprawek i ulepszeń dostępności dotyczy szerokiego spektrum doświadczeń związanych z WordPressem. Ta wersja zawiera poprawki do każdego dołączonego motywu, ulepszenia w zarządzaniu menu nawigacyjnym, dostosowywaniu i uproszczonym etykietowaniu. W edytorze bloków wprowadzono ponad 70 ulepszeń bloków, widoków danych i ogólnego użytkowania."
 
-#: wp-admin/about.php:183
+#: wp-admin/about.php:203
 msgid "Now passwords are harder to crack with bcrypt hashing, which takes a lot more computing power to break. This strengthens overall security, as do other encryption improvements across WordPress. You don&#8217;t need to do anything—everything updates automatically."
 msgstr "Teraz hasła są trudniejsze do złamania dzięki hashowaniu bcrypt, którego złamanie wymaga znacznie większej mocy obliczeniowej. Wzmacnia to ogólne bezpieczeństwo, podobnie jak inne ulepszenia szyfrowania w całym WordPressie. Nie musisz nic robić - wszystko aktualizuje się automatycznie."
 
-#: wp-admin/about.php:182
+#: wp-admin/about.php:202
 msgid "Stronger password security with bcrypt"
 msgstr "Większe bezpieczeństwo haseł dzięki bcrypt"
 
-#: wp-admin/about.php:166
+#: wp-admin/about.php:186
 msgid "In WordPress 6.8, pages load faster than ever. When you or your user hovers over or clicks a link, WordPress may preload the next page, for a smoother, near-instant experience. The system balances speed and efficiency, and you can control how it works, with a plugin or your own code. This feature only works in modern browsers—older ones will simply ignore it without any impact."
 msgstr "W WordPress 6.8 strony ładują się szybciej niż kiedykolwiek. Gdy ktoś najedzie kursorem na link lub go kliknie, WordPress może wstępnie załadować następną stronę, zapewniając płynniejsze, niemal natychmiastowe wrażenia. System równoważy szybkość i wydajność, a sposób jego działania możesz kontrolować za pomocą wtyczki lub własnego kodu. Funkcja działa tylko w nowoczesnych przeglądarkach, w starszych zostanie ona zignorowana, bez żadnego wpływu."
 
-#: wp-admin/about.php:165
+#: wp-admin/about.php:185
 msgid "Near-instant page loads, thanks to Speculative Loading"
 msgstr "Niemal natychmiastowe ładowanie stron dzięki funkcji ładowania spekulacyjnego"
 
-#: wp-admin/about.php:159
+#: wp-admin/about.php:179
 msgid "Easier ways to see your options in Data Views, and you can exclude sticky posts from the Query Loop. Plus, you&#8217;ll find lots of little improvements in the editor that smooth your way through everything you build."
 msgstr "Łatwiej zobaczysz swoje opcje w widokach danych i możesz wykluczyć przypięte wpisy z pętli zapytań. Ponadto, w edytorze znajdziesz wiele drobnych usprawnień, które ułatwią pracę nad wszystkim co stworzysz."
 
-#: wp-admin/about.php:138
+#: wp-admin/about.php:158
 msgid "Plus, now you can see it in Classic themes that have editor-styles or a theme.json file. Find the Style Book under Appearance > Design and use it to preview your theme&#8217;s evolution, as you edit CSS or make changes in the Customizer."
 msgstr "Dodatkowo, teraz można go zobaczyć w motywach klasycznych, które mają edytor stylów lub plik theme.json. Znajdź księgę stylów w sekcji Wygląd > Projekt i użyj jej do podglądu ewolucji motywu podczas edycji CSS lub wprowadzania zmian w personalizacji."
 
 #. translators: %s is a direct link to the Style Book.
-#: wp-admin/about.php:134
+#: wp-admin/about.php:154
 msgid "Plus, now you can see it in Classic themes that have editor-styles or a theme.json file. Find <a href=\"%s\">the Style Book</a> under Appearance > Design and use it to preview your theme&#8217;s evolution, as you edit CSS or make changes in the Customizer."
 msgstr "Dodatkowo, teraz można go zobaczyć w klasycznych motywach, które mają edytor stylów lub pliku theme.json. Znajdź <a href=\"%s\">książkę stylów</a> w sekcji Wygląd > Projekt i użyj jej do podglądu ewolucji motywu podczas edycji CSS lub wprowadzania zmian w personalizacji."
 
-#: wp-admin/about.php:126
+#: wp-admin/about.php:146
 msgid "The Style Book has a new, structured layout and clearer labels, to make it even easier to edit colors, typography—almost all your site styles—in one place."
 msgstr "Księga stylów ma nowy, uporządkowany układ i bardziej przejrzyste etykiety, aby jeszcze bardziej ułatwić edycję kolorów, typografii - prawie wszystkich stylów witryny - i to w jednym miejscu."
 
-#: wp-admin/about.php:124
+#: wp-admin/about.php:144
 msgid "The Style Book gets a cleaner look—and a few new tricks"
 msgstr "Księga stylów zyskuje bardziej przejrzysty wygląd i kilka nowych sztuczek"
 
-#: wp-admin/about.php:117
+#: wp-admin/about.php:137
 msgid "The Style Book now has a structured layout and works with Classic themes, giving you more control over global styles."
 msgstr "Księga stylów ma teraz uporządkowany układ i współpracuje z motywami klasycznymi, dając większą kontrolę nad globalnymi stylami."
 
-#: wp-admin/about.php:116
+#: wp-admin/about.php:136
 msgid "WordPress 6.8 polishes and refines the tools you use every day, making your site faster, more secure, and easier to manage."
 msgstr "WordPress 6.8 udoskonala narzędzia, z których korzystasz każdego dnia, dzięki czemu twoja witryna działa szybciej, jest bezpieczniejsza i łatwiejsza w zarządzaniu."
 
-#: wp-admin/about.php:115
+#: wp-admin/about.php:135
 msgid "A release polished to a high sheen."
 msgstr "Wersja wypolerowana na wysoki połysk."
 
@@ -384,12 +384,12 @@ msgid "Skip to Editor"
 msgstr "Przejdź do edytora"
 
 #. translators: %s: WordPress version number.
-#: wp-admin/about.php:314
+#: wp-admin/about.php:334
 msgid "WordPress %s Field Guide"
 msgstr "Przewodnik po WordPressie %s"
 
 #. translators: %s: WordPress version number.
-#: wp-admin/about.php:287
+#: wp-admin/about.php:307
 msgid "WordPress %s Release Notes"
 msgstr "Informacje o wersji %s WordPressa"
 
@@ -548,20 +548,20 @@ msgstr "Jeśli jesteś autorem wtyczki, możesz dowiedzieć się więcej na tema
 msgid "If you are a plugin author, you can learn more about <a href=\"https://developer.wordpress.org/plugins/privacy/adding-the-personal-data-eraser-to-your-plugin/\">how to add the Personal Data Eraser to a plugin</a>."
 msgstr "Jeśli jesteś autorem wtyczki, możesz dowiedzieć się więcej na temat <a href=\"https://developer.wordpress.org/plugins/privacy/adding-the-personal-data-eraser-to-your-plugin/\">jak dodać narzędzie do usuwania danych osobistych do wtyczki</a>."
 
-#: wp-admin/about.php:240
+#: wp-admin/about.php:260
 msgid "See everything new"
 msgstr "Zobacz wszystkie nowości"
 
-#: wp-admin/about.php:240
+#: wp-admin/about.php:260
 msgid "https://wordpress.org/download/releases/6-8/"
 msgstr "https://wordpress.org/download/releases/6-8/"
 
 #. translators: %s: Version number.
-#: wp-admin/about.php:232
+#: wp-admin/about.php:252
 msgid "For a comprehensive overview of all the new features and enhancements in WordPress %s, please visit the feature-showcase website."
 msgstr "Aby uzyskać kompleksowy przegląd wszystkich nowych funkcji i ulepszeń w WordPress %s, przejdź na stronę internetową z prezentacją funkcji."
 
-#: wp-admin/about.php:226
+#: wp-admin/about.php:246
 msgid "And much more"
 msgstr "I wiele więcej"
 
@@ -705,11 +705,11 @@ msgstr "Zainstaluj"
 msgid "Created by a worldwide team of passionate individuals"
 msgstr "Stworzone przez pasjonatów z całego świata"
 
-#: wp-admin/about.php:196
+#: wp-admin/about.php:216
 msgid "Accessibility improvements"
 msgstr "Ulepszenia dostępności"
 
-#: wp-admin/about.php:218
+#: wp-admin/about.php:238
 msgid "Performance updates"
 msgstr "Aktualizacje wydajności"
 
@@ -779,12 +779,12 @@ msgid "When using Bulk Edit, you can change the metadata (categories, author, et
 msgstr "Korzystając z Edycji zbiorczej, możesz zmienić metadane (kategorie, autora itp.) dla wszystkich wybranych postów jednocześnie. Aby usunąć post z grupy, kliknij przycisk %s<span class=\"screen-reader-text\">usuń</span> obok jego nazwy w wyświetlonym obszarze edycji zbiorczej."
 
 #. translators: %s: WordPress version number.
-#: wp-admin/about.php:297
+#: wp-admin/about.php:317
 msgid "Read the WordPress %s Release Notes for information on installation, enhancements, fixed issues, release contributors, learning resources, and the list of file changes."
 msgstr "Przeczytaj uwagi do wydania WordPress %s, aby uzyskać informacje na temat instalacji, ulepszeń, naprawionych błędów, współautorów wydania, zasobów edukacyjnych i listy zmian w plikach."
 
 #. translators: %s: WordPress version number.
-#: wp-admin/about.php:324
+#: wp-admin/about.php:344
 msgid "Explore the WordPress %s Field Guide. Learn about the changes in this release with detailed developer notes to help you build with WordPress."
 msgstr "Zajrzyj do przewodnika po WordPressie %s. Dowiedz się o zmianach w tym wydaniu dzięki szczegółowym notatkom dla programistów, które pomogą tworzyć z WordPressem."
 
@@ -805,7 +805,7 @@ msgid "Your WordPress version is %1$s, however the new plugin version requires %
 msgstr "Twoja wersja WordPressa to %1$s, jednak nowa wersja wtyczki wymaga %2$s."
 
 #. translators: %s: WordPress version.
-#: wp-admin/about.php:79 wp-admin/about.php:104
+#: wp-admin/about.php:74 wp-admin/about.php:99 wp-admin/about.php:124
 msgid "https://wordpress.org/support/wordpress-version/version-%s/"
 msgstr "https://wordpress.org/support/wordpress-version/version-%s/"
 
@@ -1272,7 +1272,7 @@ msgid "Be the future of WordPress"
 msgstr "Bądź przyszłością WordPressa"
 
 #. translators: 1: Learn WordPress link, 2: Workshops link.
-#: wp-admin/about.php:265
+#: wp-admin/about.php:285
 msgid "<a href=\"%1$s\">Learn WordPress</a> is a free resource for new and experienced WordPress users. Learn is stocked with how-to videos on using various features in WordPress, <a href=\"%2$s\">interactive workshops</a> for exploring topics in-depth, and lesson plans for diving deep into specific areas of WordPress."
 msgstr "<a href=\"%1$s\">Learn WordPress</a> to darmowe źródło wiedzy dla nowych i doświadczonych użytkowników WordPressa. Zawiera filmy instruktażowe dotyczące korzystania z różnych funkcji WordPressa, <a href=\"%2$s\">interaktywne zajęcia</a> umożliwiające dogłębne zbadanie tematów oraz plany lekcji umożliwiające zagłębienie się w określone obszary WordPressa."
 
@@ -1418,12 +1418,12 @@ msgid "<a href=\"https://wordpress.org/documentation/article/customizer/\">Docum
 msgstr "<a href=\"https://wordpress.org/documentation/article/customizer/\">Dokumentacja dotycząca personalizatora</a>"
 
 #. translators: The localized WordPress download URL.
-#: wp-admin/about.php:405
+#: wp-admin/about.php:425
 msgid "https://wordpress.org/download/"
 msgstr "https://pl.wordpress.org/download/"
 
 #. translators: %s: The major version of WordPress for this branch.
-#: wp-admin/about.php:402
+#: wp-admin/about.php:422
 msgid "This is the final release of WordPress %s"
 msgstr "Ostateczne wydanie WordPressa %s"
 
@@ -1747,12 +1747,12 @@ msgid "Reach out to WordPress Core developers to ensure you'll never have this p
 msgstr "Dotrzyj do programistów WordPress Core, aby upewnić się, że nigdy więcej nie będziesz miał tego problemu."
 
 #. translators: 1: WordPress version number, 2: Link to update WordPress
-#: wp-admin/about.php:399
+#: wp-admin/about.php:419
 msgid "Important! Your version of WordPress (%1$s) will stop receiving security updates in the near future. To keep your site secure, please <a href=\"%2$s\">update to the latest version of WordPress</a>."
 msgstr "Uwaga! Twoja wersja WordPressa (%1$s) przestanie otrzymywać aktualizacje zabezpieczeń w najbliższej przyszłości. Aby zachować bezpieczeństwo swojej witryny, prosimy o <a href=\"%2$s\">aktualizację do najnowszej wersji WordPress</a>."
 
 #. translators: 1: WordPress version number, 2: Link to update WordPress
-#: wp-admin/about.php:396
+#: wp-admin/about.php:416
 msgid "Important! Your version of WordPress (%1$s) is no longer supported, you will not receive any security updates for your website. To keep your site secure, please <a href=\"%2$s\">update to the latest version of WordPress</a>."
 msgstr "Ważne! Twoja wersja WordPressa (%1$s) nie jest już wspierana, nie będziesz otrzymywać żadnych aktualizacji zabezpieczeń dla swojej witryny. Aby zachować bezpieczeństwo swojej witryny, prosimy o <a href=\"%2$s\">aktualizację do najnowszej wersji WordPress</a>."
 
@@ -1762,7 +1762,7 @@ msgid "https://make.wordpress.org/core/wordpress-%s-field-guide/"
 msgstr "https://make.wordpress.org/core/wordpress-%s-field-guide/"
 
 #. translators: %s: Version number.
-#: wp-admin/about.php:256
+#: wp-admin/about.php:276
 msgid "Learn more about WordPress %s"
 msgstr "Dowiedz się więcej o WordPressie %s"
 
@@ -2669,7 +2669,7 @@ msgstr "Utwórz hasło aplikacji"
 msgid "Required to create an Application Password, but not to update the user."
 msgstr "Wymagane do utworzenia hasła aplikacji, jednak nie do aktualizacji danych użytkownika."
 
-#: wp-admin/about.php:340
+#: wp-admin/about.php:360
 msgid "Go to Updates"
 msgstr "Przejdź do aktualizacji"
 
@@ -5970,7 +5970,7 @@ msgstr "Firma XYZ Doohickey została założona w 1971 roku i od tamtej pory dos
 #. translators: First page content.
 #: wp-admin/includes/upgrade.php:325
 msgid "...or something like this:"
-msgstr "...albo coś takiego:"
+msgstr "…albo coś takiego:"
 
 #. translators: First page content.
 #: wp-admin/includes/upgrade.php:320
@@ -6128,7 +6128,7 @@ msgstr "Potrzebujesz pomocy przy tworzeniu nowej strony Polityki Prywatności? Z
 #: wp-admin/includes/class-wp-privacy-data-removal-requests-list-table.php:66
 #: wp-admin/includes/class-wp-privacy-data-removal-requests-list-table.php:140
 msgid "Erasing data..."
-msgstr "Kasowanie danych..."
+msgstr "Kasowanie danych…"
 
 #: wp-admin/erase-personal-data.php:114
 msgid "Add Data Erasure Request"
@@ -6612,7 +6612,7 @@ msgstr "Wiadomość e-mail została wysłana."
 
 #: wp-admin/includes/class-wp-privacy-data-export-requests-list-table.php:134
 msgid "Sending email..."
-msgstr "Wysłanie maila..."
+msgstr "Wysłanie wiadomości e-mail…"
 
 #: wp-admin/includes/class-wp-privacy-data-export-requests-list-table.php:62
 msgid "Download personal data again"
@@ -6670,7 +6670,7 @@ msgstr "Spróbuj ponownie"
 
 #: wp-admin/includes/class-wp-privacy-data-export-requests-list-table.php:61
 msgid "Downloading data..."
-msgstr "Pobieranie danych..."
+msgstr "Pobieranie danych…"
 
 #: wp-admin/includes/class-wp-privacy-data-export-requests-list-table.php:60
 msgid "Download personal data"
@@ -7701,7 +7701,7 @@ msgstr "Zastępca kierownika wydania"
 msgid "Release Design Lead"
 msgstr "Główny projektant wydania"
 
-#: wp-admin/about.php:158
+#: wp-admin/about.php:178
 msgid "Editor improvements"
 msgstr "Ulepszenia edytora"
 
@@ -8150,7 +8150,7 @@ msgid "(Currently set to: %s)"
 msgstr "(Obecne ustawienie: %s)"
 
 #. translators: %s: WordPress version number.
-#: wp-admin/about.php:370
+#: wp-admin/about.php:390
 msgid "<strong>Version %s</strong> addressed one security issue."
 msgstr "<strong>Wersja %s</strong> naprawiła jeden problem związany z bezpieczeństwem."
 
@@ -8163,15 +8163,15 @@ msgstr "https://pl.gravatar.com/"
 msgid "Profile Picture"
 msgstr "Zdjęcie profilowe"
 
-#: wp-admin/about.php:59 wp-admin/about.php:367
+#: wp-admin/about.php:59 wp-admin/about.php:387
 msgid "Maintenance and Security Releases"
 msgstr "Wydania konserwacyjne z poprawkami bezpieczeństwa"
 
-#: wp-admin/about.php:364
+#: wp-admin/about.php:384
 msgid "Security Releases"
 msgstr "Wydania poprawiające bezpieczeństwo"
 
-#: wp-admin/about.php:361
+#: wp-admin/about.php:381
 msgid "Maintenance Releases"
 msgstr "Wydania konserwacyjne"
 
@@ -11491,13 +11491,14 @@ msgstr "Pokazuj pasek narzędzi podczas przeglądania witryny"
 
 #. translators: %s: HelpHub URL.
 #. translators: %s: Documentation URL.
-#: wp-admin/about.php:76 wp-admin/about.php:101 wp-admin/about.php:393
+#: wp-admin/about.php:71 wp-admin/about.php:96 wp-admin/about.php:121
+#: wp-admin/about.php:413
 msgid "For more information, see <a href=\"%s\">the release notes</a>."
 msgstr "Aby dowiedzieć się więcej, przeczytaj <a href=\"%s\">informacje o tym wydaniu</a>."
 
 #. translators: 1: WordPress version number, 2: Plural number of bugs. More
 #. than one security issue.
-#: wp-admin/about.php:387
+#: wp-admin/about.php:407
 msgid "<strong>Version %1$s</strong> addressed some security issues and fixed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed some security issues and fixed %2$s bugs."
 msgstr[0] "W <strong>wersji %1$s</strong> naprawiono pewne błędy w zabezpieczeniach i %2$s inny błąd."
@@ -11506,7 +11507,7 @@ msgstr[2] "W <strong>wersji %1$s</strong> naprawiono pewne błędy w zabezpiecze
 
 #. translators: 1: WordPress version number, 2: Plural number of bugs. Singular
 #. security issue.
-#: wp-admin/about.php:381
+#: wp-admin/about.php:401
 msgid "<strong>Version %1$s</strong> addressed a security issue and fixed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed a security issue and fixed %2$s bugs."
 msgstr[0] "W <strong>wersji %1$s</strong> naprawiono błąd w zabezpieczeniach i %2$s inny błąd."
@@ -11514,27 +11515,28 @@ msgstr[1] "W <strong>wersji %1$s</strong> naprawiono błąd w zabezpieczeniach i
 msgstr[2] "W <strong>wersji %1$s</strong> naprawiono błąd w zabezpieczeniach i %2$s innych błędów."
 
 #. translators: 1: WordPress version number, 2: Plural number of bugs.
-#: wp-admin/about.php:64 wp-admin/about.php:89 wp-admin/about.php:375
+#: wp-admin/about.php:84 wp-admin/about.php:109 wp-admin/about.php:395
 msgid "<strong>Version %1$s</strong> addressed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed %2$s bugs."
 msgstr[0] "W <strong>wersji %1$s</strong> naprawiono %2$s błąd."
 msgstr[1] "W <strong>wersji %1$s</strong> naprawiono %2$s błędy."
 msgstr[2] "W <strong>wersji %1$s</strong> naprawiono %2$s błędów."
 
+#. translators: %s: WordPress version.
 #. translators: %s: WordPress version number.
-#: wp-admin/about.php:372
+#: wp-admin/about.php:64 wp-admin/about.php:392
 msgid "<strong>Version %s</strong> addressed some security issues."
 msgstr "W <strong>wersji %s</strong> naprawiono pewne błędy związane z bezpieczeństwem."
 
-#: wp-admin/about.php:366
+#: wp-admin/about.php:386
 msgid "Maintenance and Security Release"
 msgstr "Wydanie z poprawkami błędów w zabezpieczeniach i innych"
 
-#: wp-admin/about.php:363
+#: wp-admin/about.php:383
 msgid "Security Release"
 msgstr "Wydanie z poprawkami błędów w zabezpieczeniach"
 
-#: wp-admin/about.php:360
+#: wp-admin/about.php:380
 msgid "Maintenance Release"
 msgstr "Wydanie z poprawkami błędów"
 
@@ -11807,11 +11809,11 @@ msgstr "<strong>Edytuj</strong> przenosi na ekran edycji wpisu. To samo dzieje s
 msgid "Because this is a multisite installation, you may add accounts that already exist on the Network by specifying a username or email, and defining a role. For more options, such as specifying a password, you have to be a Network Administrator and use the hover link under an existing user&#8217;s name to Edit the user profile under Network Admin > All Users."
 msgstr "Ponieważ jest to sieć witryn, to można dodać konto użytkownika, który już istnieje w sieci. W tym celu podaj nazwę lub adres e-mail użytkownika, którego chcesz dodać do witryny, a następnie wybierz jedną z ról, którą chcesz jemu nadać. Dostęp do większej liczby funkcji, takich jak możliwości ustawienia hasła, mają tylko administratorzy sieci witryn. Mogą oni także modyfikować profile użytkowników po kliknięciu odnośnika „Edytuj”, który pojawi się po umieszczeniu wskaźnika myszy nad pozycją z nazwą wybranego użytkownika na liście użytkowników na ekranie „Administracja siecią → Wszyscy użytkownicy”."
 
-#: wp-admin/about.php:347
+#: wp-admin/about.php:367
 msgid "Go to Dashboard &rarr; Home"
 msgstr "Przejdź do kokpitu"
 
-#: wp-admin/about.php:340
+#: wp-admin/about.php:360
 msgid "Go to Dashboard &rarr; Updates"
 msgstr "Przejdź na Kokpit &rarr; Aktualizacje"
 
@@ -12589,10 +12591,6 @@ msgstr "Zastosuj filtry"
 msgid "Editor Style"
 msgstr "Styl edytora"
 
-#: wp-admin/users.php:235
-msgid "Sorry, you are not allowed to edit users."
-msgstr "Brak uprawnień do edycji użytkowników."
-
 #: wp-admin/includes/file.php:2560
 msgid "To perform the requested action, WordPress needs to access your web server."
 msgstr "Aby wykonać wybrane działanie, WordPress potrzebuje dostępu do twojego serwera WWW."
@@ -13069,7 +13067,7 @@ msgstr "<strong>Dyskusja</strong> – W tym miejscu możesz włączyć lub wył�
 #. translators: %s: Featured image.
 #: wp-admin/edit-form-advanced.php:379
 msgid "<strong>%s</strong> &mdash; This allows you to associate an image with your post without inserting it. This is usually useful only if your theme makes use of the image as a post thumbnail on the home page, a custom header, etc."
-msgstr "<strong>%s</strong> – Pozwala na przypisanie wpisowi obrazka bez wstawiania go do treści wpisu. Jest to zwykle użyteczne tylko wtedy, gdy używany motyw wyświetla obrazki wyróżniające jako miniatury na stronie głównej, jako nagłówki na podstronie z treścią wpisu itp..."
+msgstr "<strong>%s</strong> &mdash; Pozwala na przypisanie wpisowi obrazka bez wstawiania go do treści wpisu. Jest to zwykle użyteczne tylko wtedy, gdy używany motyw wyświetla obrazki wyróżniające jako miniatury na stronie głównej, jako nagłówki na podstronie z treścią wpisu itp."
 
 #: wp-admin/edit-form-advanced.php:285
 msgid "<strong>Title</strong> &mdash; Enter a title for your post. After you enter a title, you&#8217;ll see the permalink below, which you can edit."
@@ -13519,7 +13517,7 @@ msgstr "Aktualizacje WordPressa"
 msgid "Edit menu item"
 msgstr "Edytuj element menu"
 
-#: wp-admin/about.php:347
+#: wp-admin/about.php:367
 msgid "Go to Dashboard"
 msgstr "Przejdź do kokpitu"
 
