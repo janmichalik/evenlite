@@ -32,9 +32,11 @@ function evenlite_events_admin_page()
     echo '<els-root></els-root>';
 }
 
+
 add_action('admin_enqueue_scripts', function ($hook) {
+    $plugin_dir = plugin_dir_path(file: __FILE__) . 'settings-app';
+    $main_js = evenlite_get_hashed_file($plugin_dir, 'main', 'js');
     if ($hook === 'toplevel_page_evenlite-events') {
-        $plugin_dir = plugin_dir_path(__FILE__) . 'settings-app';
         $plugin_url = plugins_url('settings-app', __FILE__);
         $main_js = evenlite_get_hashed_file($plugin_dir, 'main', 'js');
         $styles_css = evenlite_get_hashed_file($plugin_dir, 'styles', 'css');
@@ -54,23 +56,42 @@ add_action('admin_enqueue_scripts', function ($hook) {
             wp_enqueue_script('settings-main', "$plugin_url/$main_js", [], null, true);
         }
     }
+    if ($main_js) {
+        wp_enqueue_script('settings-main', "$plugin_url/$main_js", [], null, true);
+
+        wp_localize_script('settings-main', 'EvenliteAPI', [
+            'nonce' => wp_create_nonce('wp_rest'),
+            'restUrl' => esc_url_raw(rest_url()),
+            'userId' => get_current_user_id(),
+            'userRole' => wp_get_current_user()->roles,
+        ]);
+    }
 });
 
 add_action('rest_api_init', function () {
-  register_rest_route('evenlite/v1', '/session', [
-    'methods' => 'GET',
-    'callback' => function () {
-      if (is_user_logged_in()) {
-        $user = wp_get_current_user();
-        return [
-          'logged_in' => true,
-          'username' => $user->user_login,
-          'roles' => $user->roles,
-          'is_admin' => in_array('administrator', $user->roles)
-        ];
-      }
-      return ['logged_in' => false];
-    },
-    'permission_callback' => '__return_true'
-  ]);
+    register_rest_route('evenlite/v1', '/session', [
+        'methods' => 'GET',
+        'callback' => function () {
+            if (is_user_logged_in()) {
+                $user = wp_get_current_user();
+                return [
+                    'logged_in' => true,
+                    'username' => $user->user_login,
+                    'roles' => $user->roles,
+                    'is_admin' => in_array('administrator', $user->roles)
+                ];
+            }
+            return ['logged_in' => false];
+        },
+        'permission_callback' => '__return_true'
+    ]);
 });
+
+function evenlite_expose_nonce()
+{
+    wp_localize_script('evenlite-angular', 'EvenliteAPI', [
+        'nonce' => wp_create_nonce('wp_rest'),
+        'restUrl' => esc_url_raw(rest_url())
+    ]);
+}
+add_action('wp_enqueue_scripts', 'evenlite_expose_nonce');

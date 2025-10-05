@@ -9,3 +9,8 @@
 <els-test />
 <h1>{{ wpResponse?.name }}</h1>
 <p>{{ wpResponse?.description }}</p>
+<pre>{{ users | json }}</pre>
+
+<div *ngFor="let user of users">
+  {{ getRolesString(user) }}
+</div>
