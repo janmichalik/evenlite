@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Tab } from './tabs.model';
 
 @Injectable({ providedIn: 'root' })
+
 export class TabsService {
   private tabs: Tab[] = [];
   private activeTabId: string | null = null;

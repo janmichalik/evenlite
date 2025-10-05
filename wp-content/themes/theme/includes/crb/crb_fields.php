@@ -147,8 +147,7 @@ add_action('admin_footer', function () {
 ?>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const selectorPattern = '[name^="carbon_fields_compact_input[_company_nip_label]"][name$="[_lang]"]';
-
+      const selectorPattern = 'select[name$="[_lang]"]';
       function updateLangSelects() {
         const selects = document.querySelectorAll(selectorPattern);
         if (selects.length === 0) return;
@@ -219,5 +218,38 @@ add_action('admin_footer', function () {
       }, 500);
     });
   </script>
+<?php
+});
+
+// WYStyledIWYE
+add_action('admin_footer', function () {
+?>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const injected = new WeakSet();
+    function injectBundleIntoIframe(iframe) {
+      if (!iframe || injected.has(iframe)) return;
+      const doc = iframe.contentDocument || iframe.contentWindow.document;
+      if (!doc || !doc.head) return;
+      const link = doc.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = '<?php echo get_template_directory_uri(); ?>/public/bundle.css';
+      doc.head.appendChild(link);
+      injected.add(iframe);
+    }
+    function scanAndInject() {
+      const iframes = document.querySelectorAll('.carbon-wysiwyg iframe');
+      iframes.forEach(injectBundleIntoIframe);
+    }
+    const observer = new MutationObserver(() => {
+      setTimeout(scanAndInject, 100);
+    });
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+    setTimeout(scanAndInject, 500);
+  });
+</script>
 <?php
 });

@@ -4,10 +4,9 @@
  * Plugin Name: Evenlite
  * Description: Booking plugin with Angular frontend.
  * Version: 1.0
- * Author: Jan
+ * Author: Jan Michalik
  */
 
-// 🔧 Funkcja musi być zdefiniowana wcześniej
 function evenlite_get_hashed_file($dir, $prefix, $ext)
 {
     foreach (glob($dir . "/$prefix.*.$ext") as $file) {
@@ -55,4 +54,23 @@ add_action('admin_enqueue_scripts', function ($hook) {
             wp_enqueue_script('settings-main', "$plugin_url/$main_js", [], null, true);
         }
     }
+});
+
+add_action('rest_api_init', function () {
+  register_rest_route('evenlite/v1', '/session', [
+    'methods' => 'GET',
+    'callback' => function () {
+      if (is_user_logged_in()) {
+        $user = wp_get_current_user();
+        return [
+          'logged_in' => true,
+          'username' => $user->user_login,
+          'roles' => $user->roles,
+          'is_admin' => in_array('administrator', $user->roles)
+        ];
+      }
+      return ['logged_in' => false];
+    },
+    'permission_callback' => '__return_true'
+  ]);
 });

@@ -7,7 +7,8 @@
 }
 
 h1 {
-  font-size: var(--huge);
+  font-size: var(--huge) !important;
+  color: magenta !important;
 }
 
 h2 {

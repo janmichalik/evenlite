@@ -1,14 +1,23 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { HomeModule } from "./home/home.module";
+import { TestComponent } from "../../tests/test/test.component";
+import { WordpressService } from './services/api/wordpress.service';
+import { WordpressRootResponse } from './models/wordpress.types';
 
 @Component({
   selector: 'els-root',
   standalone: true,
-  imports: [],
+  imports: [RouterModule, HomeModule, TestComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
-  encapsulation: ViewEncapsulation.Emulated
+  styleUrls: ['./app.component.scss']
 })
-
 export class AppComponent {
-  title = 'settings-app';
+  wpResponse: WordpressRootResponse | null = null;
+
+  constructor(private wp: WordpressService) {
+    wp.pingWordpress().then(response => {
+      this.wpResponse = response;
+    });
+  }
 }

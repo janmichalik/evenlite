@@ -1,0 +1,2 @@
+ Serwisy globalne (jeśli nie są feature-specific)
+- wordpress.service.ts → testowe połączenie z WP API, bez interceptora

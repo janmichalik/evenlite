@@ -1,0 +1,1 @@
+Singletony, konfiguracje, interceptory, guards
