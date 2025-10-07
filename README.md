@@ -1,3 +1,1 @@
-# Evenlite Plugin for WordPress
-
-A booking system tightly integrated with WooCommerce to manage reservations and payments. It connects to a standalone Angular frontend for real-time availability and scheduling. Access is restricted to WordPress administrators for secure control over all booking operations.
+A booking Wordpress plugin tightly integrated with WooCommerce to manage reservations and payments. It connects to a standalone Angular frontend for real-time availability and scheduling. Access is restricted to WordPress administrators for secure control over all booking operations.
